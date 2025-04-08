@@ -1,11 +1,19 @@
 package main;
 
+import sound.SoundPlayer;
+
 import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        //Soundtracks
+        SoundPlayer music = new SoundPlayer("resources/sounds/Soundtrack.wav");
+        music.loop();
+
+
+        //Window Settings
         JFrame window = new JFrame(); //Neues Fenster
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //X Button schließt das Game
         window.setResizable(false); //Größe des Fensters nicht mehr veränderbar
@@ -20,6 +28,7 @@ public class Main {
         window.setVisible(true); //Fenster wird sichtbar
 
         gamePanel.startGameThread();
+
 
     }
 
