@@ -27,6 +27,8 @@ public class Main {
         window.setLocationRelativeTo(null); //Fenster ist mittig vom Screen angeordnet
         window.setVisible(true); //Fenster wird sichtbar
 
+        gamePanel.setupGame();
+
         gamePanel.startGameThread();
 
 
