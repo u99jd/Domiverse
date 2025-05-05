@@ -22,6 +22,10 @@ public class Healthbar {
         this.health = health;
         image = getHealthbarImage();
 
+        if (health <= 0) {
+            System.out.println("You won!");
+        }
+
     }
 
 
