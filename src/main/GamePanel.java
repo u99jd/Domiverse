@@ -1,5 +1,6 @@
 package main;
 
+import entity.Healthbar;
 import entity.Player;
 import object.SuperObject;
 import tile.TileManager;
@@ -8,6 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
+
+    Healthbar healthbar = new Healthbar(3);
+
 
     //SCREEN SETTINGS
     final int originalTileSize = 16; //16x16 Feld
@@ -101,6 +105,11 @@ public class GamePanel extends JPanel implements Runnable {
         player.update();
     }
 
+    public Healthbar getHealthbar() {
+        return healthbar;
+    }
+
+
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
@@ -119,6 +128,9 @@ public class GamePanel extends JPanel implements Runnable {
 
         //Player
         player.draw(g2);
+
+        //Healthbar
+        healthbar.draw(g2);
 
         g2.dispose();
 

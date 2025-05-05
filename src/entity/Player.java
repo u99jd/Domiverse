@@ -159,15 +159,23 @@ public class Player extends Entity {
                     break;
                 case "Cigarette":
                     lifes--;
+                    gp.getHealthbar().setHealth(lifes);
+                    gp.obj[i] = null;
                     break;
                 case "Vape":
                     lifes--;
+                    gp.getHealthbar().setHealth(lifes);
+                    gp.obj[i] = null;
                     break;
                 case "Coke":
                     lifes--;
+                    gp.getHealthbar().setHealth(lifes);
+                    gp.obj[i] = null;
                     break;
                 case "Heroine":
                     lifes--;
+                    gp.getHealthbar().setHealth(lifes);
+                    gp.obj[i] = null;
                     break;
 
             }
