@@ -1,6 +1,8 @@
 package main;
 
-import object.OBJ_Cigarette;
+import object.OBJ_Door;
+import object.OBJ_Key;
+import object.OBJ_Vape;
 
 public class AssetSetter {
 
@@ -14,21 +16,25 @@ public class AssetSetter {
 
     public void setObject() {
 
-        gp.obj[0] = new OBJ_Cigarette();
+        gp.obj[0] = new OBJ_Key();
         gp.obj[0].worldX = 23 * gp.tileSize;
         gp.obj[0].worldY = 7 * gp.tileSize;
 
-        gp.obj[1] = new OBJ_Cigarette();
+        gp.obj[1] = new OBJ_Key();
         gp.obj[1].worldX = 23 * gp.tileSize;
         gp.obj[1].worldY = 40 * gp.tileSize;
 
-        gp.obj[2] = new OBJ_Cigarette();
+        gp.obj[2] = new OBJ_Vape();
         gp.obj[2].worldX = 24 * gp.tileSize;
         gp.obj[2].worldY = 40 * gp.tileSize;
 
-        gp.obj[3] = new OBJ_Cigarette();
-        gp.obj[3].worldX = 25 * gp.tileSize;
-        gp.obj[3].worldY = 40 * gp.tileSize;
+        gp.obj[3] = new OBJ_Door();
+        gp.obj[3].worldX = 12 * gp.tileSize;
+        gp.obj[3].worldY = 24 * gp.tileSize;
+
+        gp.obj[4] = new OBJ_Door();
+        gp.obj[4].worldX = 8 * gp.tileSize;
+        gp.obj[4].worldY = 24 * gp.tileSize;
 
 
     }
