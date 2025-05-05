@@ -15,6 +15,8 @@ public class Player extends Entity {
 
     public final int screenX;
     public final int screenY;
+    int hasKey = 0;
+    public int lifes = 3;
 
 
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -28,6 +30,8 @@ public class Player extends Entity {
         hitbox = new Rectangle();
         hitbox.x = 8;
         hitbox.y = 16;
+        hitboxDefaultX = hitbox.x;
+        hitboxDefaultY = hitbox.y;
         hitbox.width = 32;
         hitbox.height = 32;
 
@@ -49,14 +53,14 @@ public class Player extends Entity {
 
         try {
 
-            up1 = ImageIO.read(getClass().getResourceAsStream("/player/dominik_up1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/player/dominik_up2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/player/dominik_down1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/player/dominik_down2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/player/dominik_left1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/player/dominik_left2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/player/dominik_right1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/player/dominik_right2.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_up_1.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_up_2.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_down_1.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_down_2.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_left_1.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_left_2.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_right_1.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_right_2.png"));
 
         } catch (IOException e) {
 
@@ -85,6 +89,10 @@ public class Player extends Entity {
             //Collision
             collisionOn = false;
             gp.cChecker.checkTile(this);
+
+            int objIndex = gp.cChecker.checkObject(this, true);
+            pickUpObject(objIndex);
+
 
             if (!collisionOn) {
 
@@ -129,6 +137,45 @@ public class Player extends Entity {
 
 
     }
+
+
+    public void pickUpObject(int i) {
+
+        if (i != 999) {
+
+            String objectName = gp.obj[i].name;
+            switch (objectName) {
+                case "Key":
+                    hasKey++;
+                    gp.obj[i] = null;
+                    break;
+                case "Door":
+                    if (hasKey > 0) {
+                        gp.obj[i] = null;
+                        hasKey--;
+                    }
+                    break;
+                case "Chest":
+                    break;
+                case "Cigarette":
+                    lifes--;
+                    break;
+                case "Vape":
+                    lifes--;
+                    break;
+                case "Coke":
+                    lifes--;
+                    break;
+                case "Heroine":
+                    lifes--;
+                    break;
+
+            }
+
+        }
+
+    }
+
 
     //Visuals
     public void draw(Graphics2D g2) {

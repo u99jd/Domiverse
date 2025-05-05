@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         //Soundtracks
-        SoundPlayer music = new SoundPlayer("resources/sounds/Soundtrack.wav");
+        SoundPlayer music = new SoundPlayer("resources/sounds/Soundtrack2.wav");
         music.loop();
 
 
