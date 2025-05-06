@@ -17,7 +17,7 @@ public class Main {
         JFrame window = new JFrame(); //Neues Fenster
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //X Button schließt das Game
         window.setResizable(false); //Größe des Fensters nicht mehr veränderbar
-        window.setTitle("Domiverse"); //Titel als Text oben im Fenster
+        window.setTitle("Domiverse"); //Titel als Text oben im Fenster.
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
