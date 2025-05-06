@@ -1,1 +1,16 @@
-[Domiverse TODO.txt](https://github.com/user-attachments/files/20067527/Domiverse.TODO.txt)
+Domiverse: TODO
+
+
+Add Main Menu
+Add Sounds
+Add Death/Win Screen
+Replace all textures with Selfmade ones
+Add own Player Texture/Animations
+Add voiceacting
+Add Different Maps
+Add Effects for different drugs
+✅Add Healthbar
+✅Add walking animations
+✅Add items
+✅Add Map building System
+
