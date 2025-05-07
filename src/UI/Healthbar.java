@@ -1,6 +1,7 @@
-package entity;
+package UI;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -18,14 +19,16 @@ public class Healthbar {
     }
 
     public void setHealth(int health) {
-
         this.health = health;
         image = getHealthbarImage();
 
         if (health <= 0) {
-            System.out.println("You won!");
+            SwingUtilities.invokeLater(() -> {
+                JFrame currentWindow = main.Main.window;
+                currentWindow.dispose(); // Close the game window
+                new DeathScreen(); // Open DeathScreen
+            });
         }
-
     }
 
 

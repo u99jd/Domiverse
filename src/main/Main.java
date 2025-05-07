@@ -6,32 +6,46 @@ import javax.swing.*;
 
 public class Main {
 
+    public static JFrame window;
+    public static GamePanel gamePanel;
+    public static SoundPlayer music;
+
     public static void main(String[] args) {
-
-        //Soundtracks
-        SoundPlayer music = new SoundPlayer("resources/sounds/Soundtrack2.wav");
-        music.loop();
-
-
-        //Window Settings
-        JFrame window = new JFrame(); //Neues Fenster
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //X Button schließt das Game
-        window.setResizable(false); //Größe des Fensters nicht mehr veränderbar
-        window.setTitle("Domiverse"); //Titel als Text oben im Fenster.
-
-        GamePanel gamePanel = new GamePanel();
-        window.add(gamePanel);
-
-        window.pack(); //setzt Größe des Fensters  fest
-
-        window.setLocationRelativeTo(null); //Fenster ist mittig vom Screen angeordnet
-        window.setVisible(true); //Fenster wird sichtbar
-
-        gamePanel.setupGame();
-
-        gamePanel.startGameThread();
-
-
+        startGame();
     }
 
+    public static void startGame() {
+        // Stop previous music if restarting
+        if (music != null) {
+            music.stop();
+        }
+
+        // Start music
+        music = new SoundPlayer("resources/sounds/Soundtrack2.wav");
+        music.loop();
+
+        // Window setup
+        window = new JFrame();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setTitle("Domiverse");
+
+        gamePanel = new GamePanel();
+        window.add(gamePanel);
+        window.pack();
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
+
+        gamePanel.setupGame();
+        gamePanel.startGameThread();
+    }
+
+    public static void restartGame() {
+        if (music != null) {
+            music.stop(); // Ensure stop() exists in SoundPlayer
+            music = null;
+        }
+        window.dispose();
+        startGame();
+    }
 }

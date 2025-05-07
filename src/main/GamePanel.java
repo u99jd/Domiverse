@@ -1,6 +1,6 @@
 package main;
 
-import entity.Healthbar;
+import UI.Healthbar;
 import entity.Player;
 import object.SuperObject;
 import tile.TileManager;
